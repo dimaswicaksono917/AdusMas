@@ -46,7 +46,7 @@
                     <span><i class="bi bi-grid-fill"></i> Dashboard</span>
                 </a>
             </li>
-            <li class="menu-item {{Route::is('masyarakat.pengaduan.index') ? 'actived' : ''}}">
+            <li class="menu-item {{Route::is('masyarakat.pengaduan*') ? 'actived' : ''}}">
                 <a href="{{route('masyarakat.pengaduan.index')}}" class="menu-link">
                     <span><i class="bi bi-list"></i> Pengaduanku</span>
                 </a>

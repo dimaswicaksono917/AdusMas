@@ -1,26 +1,24 @@
 @extends('_layouts.admin')
-@section('page_title', 'Masyarakat Terverifikasi')
+@section('page_title', 'Pengaduan Ditanggapi')
 @section('content')
     <div class="row">
         <div class="col-sm-12">
             <div class="card">
                 <div class="card-header">
-                    <h5>Data Masyarakat Terverifikasi</h5>
+                    <h5>Data Pengaduan</h5>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
                         <table class="table" id="data-table">
                             <thead>
-                                <th>Nik</th>
                                 <th>Nama</th>
-                                <th>Nomor telepon</th>
-                                <th>Registrasi pada</th>
+                                <th>Isi Pengaduan</th>
+                                <th>Dibuat tanggal</th>
+                                <th>Aksi</th>
                             </thead>
-                            <tbody>
-                            </tbody>
+                            <tbody></tbody>
                         </table>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -39,18 +37,18 @@
                 serverSide: true,
                 autoWidth: false,
                 ordering: false,
-                ajax: '{{ route('admin.get-verif') }}',
+                ajax: '{{ route('admin.get-done') }}',
                 columns: [{
-                        data: 'nik'
+                        data: 'masyarakat.nama'
                     },
                     {
-                        data: 'nama'
+                        data: 'isi_laporan'
                     },
                     {
-                        data: 'telp'
+                        data: 'tgl_pengaduan'
                     },
                     {
-                        data: 'created_at'
+                        data: 'action'
                     }
                 ],
                 language: {
@@ -67,6 +65,12 @@
                     }
                 },
             })
+        }
+
+        function responseAduan(no_pengaduan) {
+            var url = '{{ route('admin.pengaduan-detail', ':id') }}';
+            var url = url.replace(':id', no_pengaduan);
+            window.location = url
         }
     </script>
 @endsection

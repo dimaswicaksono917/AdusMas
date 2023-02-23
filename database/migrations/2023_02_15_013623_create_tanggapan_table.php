@@ -15,6 +15,7 @@ class CreateTanggapanTable extends Migration
     {
         Schema::create('tanggapan', function (Blueprint $table) {
             $table->id('id_tanggapan');
+            $table->string('no_tanggapan')->unique();
             $table->integer('id_pengaduan');
             $table->date('tgl_tanggapan');
             $table->string('tanggapan');

@@ -10,7 +10,11 @@
     <link rel="stylesheet" href="{{ asset('assets/css/main/app-dark.css') }}" />
     <link rel="shortcut icon" href="{{ asset('assets/images/logo/favicon.svg') }}" type="image/x-icon" />
     <link rel="shortcut icon" href="{{ asset('assets/images/logo/favicon.png') }}" type="image/png" />
+    <link rel="stylesheet"
+        href="{{ asset('assets/extensions/datatables.net-bs5/css/dataTables.bootstrap5.min.css') }}" />
     <link rel="stylesheet" href="{{asset('assets/extensions/datatables.net-bs5/css/datatables.responsive.bootstrap.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/css/pages/datatables.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/extensions/toastify-js/src/toastify.css') }}" />
     @yield('css')
 </head>
 

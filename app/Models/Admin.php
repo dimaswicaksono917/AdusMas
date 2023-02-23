@@ -20,4 +20,8 @@ class Admin extends Authenticatable
         'telp',
         'level'
     ];
+
+    public function tanggapan(){
+        return $this->hasMany(Tanggapan::class, 'id_petugas', 'id_petugas');
+    }
 }

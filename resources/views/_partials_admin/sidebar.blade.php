@@ -48,32 +48,41 @@
                 </a>
             </li>
 
-            <li class="sidebar-item has-sub">
-                <a href="#" class="sidebar-link">
-                    <i class="bi bi-people-fill"></i>
-                    <span>Masyarakat</span>
-                </a>
-                <ul class="submenu">
-                    <li class="submenu-item">
-                        <a href="#">Terverifikasi</a>
-                    </li>
-                    <li class="submenu-item">
-                        <a href="#">Belum Verifikasi</a>
-                    </li>
-                    </li>
-                </ul>
-            </li>
-            <li class="sidebar-item has-sub">
+            @if(Auth::guard('petugas')->user()->level == 'admin')
+                <li class="sidebar-item {{Route::is('admin.masyarakat-verif') || Route::is('admin.masyarakat-unverif') ? 'active' : ''}} has-sub">
+                    <a href="#" class="sidebar-link">
+                        <i class="bi bi-people-fill"></i>
+                        <span>Masyarakat</span>
+                    </a>
+                    <ul class="submenu {{Route::is('admin.masyarakat-verif') || Route::is('admin.masyarakat-unverif') ? 'active' : ''}}">
+                        <li class="submenu-item {{Route::is('admin.masyarakat-verif') ? 'active' : ''}}">
+                            <a href="{{route('admin.masyarakat-verif')}}">Terverifikasi</a>
+                        </li>
+                        <li class="submenu-item {{Route::is('admin.masyarakat-unverif') ? 'active' : ''}}">
+                            <a href="{{route('admin.masyarakat-unverif')}}">Belum Verifikasi</a>
+                        </li>
+                        </li>
+                    </ul>
+                </li>
+                <li class="sidebar-item {{Route::is('admin.petugas.index') ? 'active' : ''}}">
+                    <a href="{{route('admin.petugas.index')}}" class="sidebar-link">
+                        <i class="bi bi-person"></i>
+                        <span>Petugas</span>
+                    </a>
+                </li>
+            @endif
+
+            <li class="sidebar-item {{Route::is('admin.pengaduan*') ? 'active' : ''}} has-sub">
                 <a href="#" class="sidebar-link">
                     <i class="bi bi-collection-fill"></i>
                     <span>Pengaduan</span>
                 </a>
-                <ul class="submenu">
-                    <li class="submenu-item">
-                        <a href="#">Ditanggapi</a>
+                <ul class="submenu {{Route::is('admin.pengaduan*') ? 'active' : ''}}">
+                    <li class="submenu-item {{Route::is('admin.pengaduan-done') ? 'active' : ''}}">
+                        <a href="{{route('admin.pengaduan-done')}}">Ditanggapi</a>
                     </li>
-                    <li class="submenu-item">
-                        <a href="#">Belum Ditanggapi</a>
+                    <li class="submenu-item {{Route::is('admin.pengaduan-undone') ? 'active' : ''}}">
+                        <a href="{{route('admin.pengaduan-undone')}}">Belum Ditanggapi</a>
                     </li>
                     </li>
                 </ul>

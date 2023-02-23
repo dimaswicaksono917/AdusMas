@@ -88,13 +88,13 @@
                         </div>
 
                         <button class="btn btn-primary btn-block shadow-lg mt-5">
-                            Log in
+                            Simpan
                         </button>
                     </form>
                     <div class="text-center mt-5 text-lg fs-5">
                         <p class="text-gray-600">
                             Sudah punya akun?
-                            <a href="{{route('login')}}" class="font-bold">Register</a>.
+                            <a href="{{route('login')}}" class="font-bold">Login</a>.
                         </p>
                     </div>
                 </div>

@@ -55,7 +55,7 @@
                     </form>
                     <div class="text-center mt-5 text-lg fs-5">
                         <p class="text-gray-600">
-                            Sudah punya akun?
+                            Belum punya akun?
                             <a href="{{ route('register') }}" class="font-bold">Register</a>.
                         </p>
                     </div>

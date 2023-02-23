@@ -17,7 +17,7 @@ class CekLevel
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::user()->guard('admin')->level == 'admin') {
+        if (Auth::guard('petugas')->user()->level == 'admin') {
             return $next($request);
         }
 

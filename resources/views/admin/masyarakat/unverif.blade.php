@@ -1,11 +1,11 @@
 @extends('_layouts.admin')
-@section('page_title', 'Masyarakat Terverifikasi')
+@section('page_title', 'Masyarakat Tidak Terverifikasi')
 @section('content')
     <div class="row">
         <div class="col-sm-12">
             <div class="card">
                 <div class="card-header">
-                    <h5>Data Masyarakat Terverifikasi</h5>
+                    <h5>Data Masyarakat Belum Terverifikasi</h5>
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
@@ -15,6 +15,7 @@
                                 <th>Nama</th>
                                 <th>Nomor telepon</th>
                                 <th>Registrasi pada</th>
+                                <th>Aksi</th>
                             </thead>
                             <tbody>
                             </tbody>
@@ -30,6 +31,14 @@
     <script>
         $(document).ready(function() {
             initiateDatatable();
+            Toastify({
+                text: response.message,
+                duration: 3000,
+                close: true,
+                gravity: "top",
+                position: "right",
+                backgroundColor: "#60AF4B",
+            }).showToast()
         })
 
         function initiateDatatable() {
@@ -39,7 +48,7 @@
                 serverSide: true,
                 autoWidth: false,
                 ordering: false,
-                ajax: '{{ route('admin.get-verif') }}',
+                ajax: '{{ route('admin.get-unverif') }}',
                 columns: [{
                         data: 'nik'
                     },
@@ -51,6 +60,9 @@
                     },
                     {
                         data: 'created_at'
+                    },
+                    {
+                        data: 'action'
                     }
                 ],
                 language: {
@@ -63,9 +75,47 @@
                     info: "Menampilkan _START_ - _END_ (_TOTAL_ data)",
                     paginate: {
                         previous: '<i class="bi bi-arrow-left"></i>',
-                        next: '<i class="bi bi-arrow-right"></i>',
+                        next: "<i class='bi bi-arrow-right'></i>",
                     }
                 },
+            })
+        }
+
+        function approveUser(id) {
+            var url = '{{ route('admin.approve', ':id') }}';
+            var url = url.replace(':id', id);
+            $.ajax({
+                type: 'put',
+                url: url,
+                data: {
+                    _token: '{{ csrf_token() }}'
+                },
+                cache: false,
+                success: function(response) {
+                    if (response.statusCode == 200) {
+                        $('#data-table').DataTable().ajax.reload()
+                        Toastify({
+                            text: response.message,
+                            duration: 3000,
+                            close: true,
+                            gravity: "top",
+                            position: "right",
+                            backgroundColor: "#60AF4B",
+                        }).showToast()
+                    } else {
+                        Toastify({
+                            text: response.message,
+                            duration: 3000,
+                            close: true,
+                            gravity: "top",
+                            position: "right",
+                            backgroundColor: "#B4000D",
+                        }).showToast()
+                    }
+                },
+                error: function(error) {
+                    console.log(error)
+                }
             })
         }
     </script>
