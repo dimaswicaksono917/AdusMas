@@ -8,7 +8,7 @@
                 <p>
                     Crafted with
                     <span class="text-danger"><i class="bi bi-heart"></i></span>
-                    by <a href="https://saugi.me">Saugi</a>
+                    by <a href="https://saugi.me">Dimas Wicaksono</a>
                 </p>
             </div>
         </div>

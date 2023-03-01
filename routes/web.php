@@ -33,7 +33,7 @@ Route::post('authenticate', [AuthUserController::class, 'authenticate'])->name('
 Route::get('logout', [AuthUserController::class, 'logout'])->name('logout');
 
 Route::prefix('masyarakat')->name('masyarakat')->middleware('auth')->group(function () {
-    Route::get('dashboard', [DashboardController::Class, 'index'])->name('.dashboard');
+    Route::get('dashboard', [DashboardController::class, 'index'])->name('.dashboard');
     Route::get('get-pengaduan', [PengaduanController::class, 'getPengaduan'])->name('.get-pengaduan');
     Route::prefix('pengaduan')->name('.pengaduan')->group(function () {
         Route::get('/', [PengaduanController::class, 'index'])->name('.index');

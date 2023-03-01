@@ -16,7 +16,7 @@
                                 class="form-control @error('nama_petugas')
                             is-invalid
                             @enderror"
-                                placeholder="Ujang" value="{{ old('nama_petugas') }}">
+                                placeholder="Dimas" value="{{ old('nama_petugas') }}">
                             @error('nama_petugas')
                                 <small class="text-danger">{{ $message }}</small>
                             @enderror
@@ -27,7 +27,7 @@
                                 class="form-control @error('username')
                             is-invalid
                             @enderror"
-                                placeholder="ujanggg">
+                                placeholder="Dimas ws">
                             @error('username')
                                 <small class="text-danger">{{ $message }}</small>
                             @enderror

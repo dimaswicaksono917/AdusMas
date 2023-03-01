@@ -94,13 +94,17 @@
                     <div class="text-center mt-5 text-lg fs-5">
                         <p class="text-gray-600">
                             Sudah punya akun?
-                            <a href="{{route('login')}}" class="font-bold">Login</a>.
+                            <a href="{{ route('login') }}" class="font-bold">Login</a>.
                         </p>
                     </div>
                 </div>
             </div>
             <div class="col-lg-6 d-none d-lg-block">
-                <div id="auth-right"></div>
+                <div id="auth-right">
+                    <div class="img-login">
+                        <img src="{{ asset('img/login.png') }}" alt="">
+                    </div>
+                </div>
             </div>
         </div>
     </div>

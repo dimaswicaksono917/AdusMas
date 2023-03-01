@@ -18,7 +18,7 @@
     <div id="auth">
         <div class="row h-100">
             <div class="col-lg-6 col-12">
-                <div id="auth-left">
+                <div id="auth-left" style="position:relative; top:70px;">
                     <h3 class="auth-title">Admin</h3>
                     <form action="{{ route('admin.authenticate') }}" method="post">
                         @csrf
@@ -56,7 +56,11 @@
                 </div>
             </div>
             <div class="col-lg-6 d-none d-lg-block">
-                <div id="auth-right"></div>
+                <div id="auth-right">
+                    <div class="img-login">
+                        <img src="{{ asset('img/login.png') }}" alt="">
+                    </div>
+                </div>
             </div>
         </div>
     </div>

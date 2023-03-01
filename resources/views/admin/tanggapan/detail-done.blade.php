@@ -7,7 +7,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-5">
-                            <img src="{{ asset('img/pengaduan/' . $data->foto) }}" class="rounded" width="100%" height="300px"
+                            <img src="{{ asset('img/pengaduan/' . $data->foto) }}" class="rounded" width="250px"
                                 alt="tidak ada gambar">
                         </div>
                         <div class="col-md-7">
